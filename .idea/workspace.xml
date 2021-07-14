@@ -20,19 +20,15 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="97a3a003-ee20-4826-a4e3-10a752a40eb1" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/lib/components/drop_down_field.dart" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lib/components/text_form_field.dart" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lib/helper/dart/route_generator.dart" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lib/models/commitments.dart" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lib/screens/detail_screens.dart" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lib/screens/home_screen.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Dart_SDK.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Dart_SDK.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/helper/dart/utils.dart" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/android/commitment_tracker_android.iml" beforeDir="false" afterPath="$PROJECT_DIR$/android/commitment_tracker_android.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/components/drop_down_field.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/components/drop_down_field.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/components/text_form_field.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/components/text_form_field.dart" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/lib/main.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/main.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/models/commitments.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/models/commitments.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/screens/detail_screens.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/screens/detail_screens.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/screens/home_screen.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/screens/home_screen.dart" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pubspec.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/pubspec.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test/widget_test.dart" beforeDir="false" afterPath="$PROJECT_DIR$/test/widget_test.dart" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -84,22 +80,22 @@
       <screen x="-1440" y="-137" width="1440" height="870" />
     </state>
     <state x="-1348" y="-45" width="1256" height="686" key="AVDManager/0.0.1366.738/-1440.-137.1440.870@-1440.-137.1440.870" timestamp="1626233224220" />
-    <state width="1073" height="204" key="GridCell.Tab.0.bottom" timestamp="1626233366902">
+    <state width="1071" height="276" key="GridCell.Tab.0.bottom" timestamp="1626253927953">
       <screen x="-1440" y="-137" width="1440" height="870" />
     </state>
-    <state width="1073" height="204" key="GridCell.Tab.0.bottom/0.0.1366.738/-1440.-137.1440.870@-1440.-137.1440.870" timestamp="1626233366902" />
-    <state width="1073" height="204" key="GridCell.Tab.0.center" timestamp="1626233366902">
+    <state width="1071" height="276" key="GridCell.Tab.0.bottom/0.0.1366.738/-1440.-137.1440.870@-1440.-137.1440.870" timestamp="1626253927953" />
+    <state width="1071" height="276" key="GridCell.Tab.0.center" timestamp="1626253927952">
       <screen x="-1440" y="-137" width="1440" height="870" />
     </state>
-    <state width="1073" height="204" key="GridCell.Tab.0.center/0.0.1366.738/-1440.-137.1440.870@-1440.-137.1440.870" timestamp="1626233366902" />
-    <state width="1073" height="204" key="GridCell.Tab.0.left" timestamp="1626233366901">
+    <state width="1071" height="276" key="GridCell.Tab.0.center/0.0.1366.738/-1440.-137.1440.870@-1440.-137.1440.870" timestamp="1626253927952" />
+    <state width="1071" height="276" key="GridCell.Tab.0.left" timestamp="1626253927952">
       <screen x="-1440" y="-137" width="1440" height="870" />
     </state>
-    <state width="1073" height="204" key="GridCell.Tab.0.left/0.0.1366.738/-1440.-137.1440.870@-1440.-137.1440.870" timestamp="1626233366901" />
-    <state width="1073" height="204" key="GridCell.Tab.0.right" timestamp="1626233366902">
+    <state width="1071" height="276" key="GridCell.Tab.0.left/0.0.1366.738/-1440.-137.1440.870@-1440.-137.1440.870" timestamp="1626253927952" />
+    <state width="1071" height="276" key="GridCell.Tab.0.right" timestamp="1626253927953">
       <screen x="-1440" y="-137" width="1440" height="870" />
     </state>
-    <state width="1073" height="204" key="GridCell.Tab.0.right/0.0.1366.738/-1440.-137.1440.870@-1440.-137.1440.870" timestamp="1626233366902" />
+    <state width="1071" height="276" key="GridCell.Tab.0.right/0.0.1366.738/-1440.-137.1440.870@-1440.-137.1440.870" timestamp="1626253927953" />
     <state x="-1064" y="129" key="run.anything.popup" timestamp="1626232456356">
       <screen x="-1440" y="-137" width="1440" height="870" />
     </state>

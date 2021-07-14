@@ -1,4 +1,5 @@
 import 'package:commitment_tracker/helper/dart/route_generator.dart';
+import 'package:commitment_tracker/helper/dart/utils.dart';
 import 'package:commitment_tracker/models/commitments.dart';
 import 'package:flutter/material.dart';
 
@@ -17,6 +18,12 @@ class _HomeScreenState extends State<HomeScreen> {
       commitments.add(data);
     });
   }
+
+  TextStyle _textStyle(Color color, {bool isBold}) => TextStyle(
+        fontSize: 18.0,
+        fontWeight: FontWeight.bold,
+        color: Utils.textColorForBackground(color ?? Colors.white),
+      );
 
   @override
   Widget build(BuildContext context) {
@@ -58,20 +65,39 @@ class _HomeScreenState extends State<HomeScreen> {
           )
         ],
       ),
-      body: Column(
-        children: commitments
-            .map(
-              (e) => Card(
-                margin: EdgeInsets.only(left: 15.0, right: 15.0, top: 12.0),
-                elevation: 3,
-                shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
-                child: ListTile(
-                  title: Text(e.name),
-                  trailing: Text(e.value.toString()),
+      body: SingleChildScrollView(
+        child: Column(
+          children: commitments
+              .map(
+                (e) => Card(
+                  margin: EdgeInsets.only(left: 15.0, right: 15.0, top: 12.0),
+                  elevation: 3,
+                  shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
+                  color: e.color ?? Colors.white,
+                  child: InkWell(
+                    onTap: () => Navigator.pushNamed(
+                      context,
+                      Routes.detail,
+                      arguments: CommonArgument(
+                        commitment: e,
+                        add: addCommitment,
+                      ),
+                    ),
+                    child: ListTile(
+                      title: Text(
+                        e.name,
+                        style: _textStyle(e.color),
+                      ),
+                      trailing: Text(
+                        e.value.toString(),
+                        style: _textStyle(e.color, isBold: true),
+                      ),
+                    ),
+                  ),
                 ),
-              ),
-            )
-            .toList(),
+              )
+              .toList(),
+        ),
       ),
       floatingActionButton: FloatingActionButton(
         onPressed: () => Navigator.pushNamed(

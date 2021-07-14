@@ -51,7 +51,11 @@ class MyTextFormField extends StatelessWidget {
           children: [
             Row(
               children: [
-                Text(info, style: TextStyle(fontSize: 12)),
+                Text(info,
+                    style: TextStyle(
+                      color: Colors.white,
+                      fontWeight: FontWeight.bold,
+                    )),
                 SizedBox(width: 4),
                 Text(
                   isRequired ? "*" : "",
@@ -64,12 +68,19 @@ class MyTextFormField extends StatelessWidget {
               controller: controller,
               initialValue: initialValue != null && controller == null ? initialValue : null,
               autovalidateMode: AutovalidateMode.onUserInteraction,
+              style: TextStyle(color: Colors.white),
               decoration: InputDecoration(
                 hintText: hintText,
                 contentPadding: EdgeInsets.all(15.0),
-                border: InputBorder.none,
+                border: OutlineInputBorder(
+                  borderRadius: BorderRadius.all(Radius.circular(8.0)),
+                  borderSide: BorderSide(
+                    width: 0,
+                    style: BorderStyle.none,
+                  ),
+                ),
                 filled: true,
-                fillColor: Colors.grey[200],
+                fillColor: Colors.blueGrey.shade800,
                 suffixIcon: suffixIcon,
               ),
               obscureText: isPassword,

@@ -1,3 +1,5 @@
+import 'dart:ui';
+
 enum BillingPeriod {
   daily,
   weekly,
@@ -19,7 +21,7 @@ class Commitment {
   String label; //label of the commitment
   String billingPeriod;
   String note;
-  String color;
+  Color color;
   bool isCompleted = false;
   bool isRecurring = false; //either it is recurring or not
   bool isSync = false; //either the data is sync
