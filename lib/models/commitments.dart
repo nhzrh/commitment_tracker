@@ -24,23 +24,32 @@ class Commitment extends HiveObject {
   bool isRecurring = false;
   @HiveField(9)
   bool isSync = false;
+  @HiveField(10)
+  bool isArchive = false;
+  @HiveField(11)
+  DateTime createdAt;
+  @HiveField(12)
+  String notes;
 
   Commitment({
     this.name,
     this.description,
     this.value,
     this.label,
-    this.billingPeriod,
+    this.billingPeriod = 'Monthly',
     this.note,
     this.color,
-    this.isCompleted,
-    this.isRecurring,
-    this.isSync,
+    this.isCompleted = false,
+    this.isRecurring = false,
+    this.isSync = false,
+    this.isArchive = false,
+    this.createdAt,
+    this.notes,
   });
 
   @override
   String toString() {
-    return 'Commitment({name="$name", description="$description", value=$value, label="$label", billingPeriod="$billingPeriod", note="$note", isRecurring=$isRecurring, isSync=$isSync,});';
+    return 'Commitment({name="$name", description="$description", value=$value, label="$label", billingPeriod="$billingPeriod", note="$note", isRecurring=$isRecurring, isSync=$isSync, isArchive=$isArchive, createdAt=$createdAt, notes="$notes",});';
   }
 }
 

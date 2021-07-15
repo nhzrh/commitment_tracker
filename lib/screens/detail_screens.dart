@@ -5,6 +5,7 @@ import 'package:commitment_tracker/models/commitments.dart';
 import 'package:commitment_tracker/services/boxes.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_colorpicker/flutter_colorpicker.dart';
+import 'package:validators/validators.dart' as validator;
 
 class DetailScreen extends StatefulWidget {
   final Commitment commitment;
@@ -40,6 +41,7 @@ class _DetailScreenState extends State<DetailScreen> {
   void addCommitment(Commitment data) {
     if (widget.commitment == null) {
       final box = Boxes.getCommitments();
+      data.createdAt = DateTime.now();
       box.add(data);
     } else
       data.save();
@@ -130,7 +132,7 @@ class _DetailScreenState extends State<DetailScreen> {
           child: Form(
             key: _formKey,
             child: Padding(
-              padding: const EdgeInsets.all(15.0),
+              padding: const EdgeInsets.symmetric(horizontal: 20.0, vertical: 8.0),
               child: Column(
                 children: [
                   MyTextFormField(
@@ -146,10 +148,12 @@ class _DetailScreenState extends State<DetailScreen> {
                       });
                     },
                     validator: (value) {
-                      if (value != null && value.isEmpty)
+                      if (value != null && value.isEmpty) {
                         return 'Cannot be blank';
-                      else
-                        return null;
+                      } else if (value != null && value.isNotEmpty && !validator.isFloat(value)) {
+                        return "Please enter a valid value";
+                      }
+                      return null;
                     },
                   ),
                   MyTextFormField(
@@ -181,22 +185,25 @@ class _DetailScreenState extends State<DetailScreen> {
                       });
                     },
                   ),
-                  MyDropDownField(
-                    info: 'Billing Period',
-                    initialValue: _commitment.billingPeriod ?? billPeriod[BillingPeriod.monthly],
-                    dropDownItems: BillingPeriod.values
-                        .map(
-                          (e) => DropdownMenuItem(
-                            child: Text(billPeriod[e]),
-                            value: billPeriod[e],
-                          ),
-                        )
-                        .toList(),
-                    onChanged: (value) {
-                      setState(() {
-                        _commitment.billingPeriod = value;
-                      });
-                    },
+                  Visibility(
+                    visible: false,
+                    child: MyDropDownField(
+                      info: 'Billing Period',
+                      initialValue: _commitment.billingPeriod ?? billPeriod[BillingPeriod.monthly],
+                      dropDownItems: BillingPeriod.values
+                          .map(
+                            (e) => DropdownMenuItem(
+                              child: Text(billPeriod[e]),
+                              value: billPeriod[e],
+                            ),
+                          )
+                          .toList(),
+                      onChanged: (value) {
+                        setState(() {
+                          _commitment.billingPeriod = value;
+                        });
+                      },
+                    ),
                   ),
                   Padding(
                     padding: const EdgeInsets.symmetric(vertical: 15.0),
@@ -233,7 +240,18 @@ class _DetailScreenState extends State<DetailScreen> {
                         ),
                       ],
                     ),
-                  )
+                  ),
+                  MyTextFormField(
+                    info: 'Notes',
+                    initialValue: _commitment.notes,
+                    hintText: 'e.g. Share with friends and family',
+                    textInputAction: TextInputAction.next,
+                    onSaved: (value) {
+                      setState(() {
+                        _commitment.notes = value;
+                      });
+                    },
+                  ),
                 ],
               ),
             ),

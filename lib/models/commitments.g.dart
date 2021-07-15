@@ -27,13 +27,16 @@ class CommitmentAdapter extends TypeAdapter<Commitment> {
       isCompleted: fields[7] as bool,
       isRecurring: fields[8] as bool,
       isSync: fields[9] as bool,
+      isArchive: fields[10] as bool,
+      createdAt: fields[11] as DateTime,
+      notes: fields[12] as String,
     );
   }
 
   @override
   void write(BinaryWriter writer, Commitment obj) {
     writer
-      ..writeByte(10)
+      ..writeByte(13)
       ..writeByte(0)
       ..write(obj.name)
       ..writeByte(1)
@@ -53,7 +56,13 @@ class CommitmentAdapter extends TypeAdapter<Commitment> {
       ..writeByte(8)
       ..write(obj.isRecurring)
       ..writeByte(9)
-      ..write(obj.isSync);
+      ..write(obj.isSync)
+      ..writeByte(10)
+      ..write(obj.isArchive)
+      ..writeByte(11)
+      ..write(obj.createdAt)
+      ..writeByte(12)
+      ..write(obj.notes);
   }
 
   @override

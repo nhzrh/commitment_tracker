@@ -20,15 +20,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="97a3a003-ee20-4826-a4e3-10a752a40eb1" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/lib/models/commitments.g.dart" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lib/screens/view_screen.dart" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lib/services/boxes.dart" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/android/commitment_tracker_android.iml" beforeDir="false" afterPath="$PROJECT_DIR$/android/commitment_tracker_android.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/helper/dart/route_generator.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/helper/dart/route_generator.dart" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/lib/helper/dart/utils.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/helper/dart/utils.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/main.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/main.dart" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/lib/models/commitments.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/models/commitments.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/models/commitments.g.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/models/commitments.g.dart" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/lib/screens/detail_screens.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/screens/detail_screens.dart" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/lib/screens/home_screen.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/screens/home_screen.dart" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pubspec.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/pubspec.yaml" afterDir="false" />
@@ -78,7 +73,14 @@
       <option name="project" value="LOCAL" />
       <updated>1626257127727</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="Add hive database for persistent data">
+      <created>1626333322872</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1626333322873</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -96,7 +98,8 @@
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
     <MESSAGE value="Setup the basic UI" />
-    <option name="LAST_COMMIT_MESSAGE" value="Setup the basic UI" />
+    <MESSAGE value="Add hive database for persistent data" />
+    <option name="LAST_COMMIT_MESSAGE" value="Add hive database for persistent data" />
   </component>
   <component name="WindowStateProjectService">
     <state x="-1348" y="-45" width="1256" height="686" key="AVDManager" timestamp="1626317230515">
@@ -111,26 +114,26 @@
       <screen x="-1440" y="-137" width="1440" height="870" />
     </state>
     <state x="-1101" y="55" key="FileChooserDialogImpl/0.0.1366.738/-1440.-137.1440.870@-1440.-137.1440.870" timestamp="1626332553485" />
-    <state width="1395" height="51" key="GridCell.Tab.0.bottom" timestamp="1626333247370">
+    <state width="1077" height="252" key="GridCell.Tab.0.bottom" timestamp="1626347839757">
       <screen x="-1440" y="-137" width="1440" height="870" />
     </state>
-    <state width="1395" height="51" key="GridCell.Tab.0.bottom/0.0.1366.738/-1440.-137.1440.870@-1440.-137.1440.870" timestamp="1626333247370" />
-    <state width="1395" height="51" key="GridCell.Tab.0.center" timestamp="1626333247370">
+    <state width="1077" height="252" key="GridCell.Tab.0.bottom/0.0.1366.738/-1440.-137.1440.870@-1440.-137.1440.870" timestamp="1626347839756" />
+    <state width="1077" height="252" key="GridCell.Tab.0.center" timestamp="1626347839754">
       <screen x="-1440" y="-137" width="1440" height="870" />
     </state>
-    <state width="1395" height="51" key="GridCell.Tab.0.center/0.0.1366.738/-1440.-137.1440.870@-1440.-137.1440.870" timestamp="1626333247370" />
-    <state width="1395" height="51" key="GridCell.Tab.0.left" timestamp="1626333247369">
+    <state width="1077" height="252" key="GridCell.Tab.0.center/0.0.1366.738/-1440.-137.1440.870@-1440.-137.1440.870" timestamp="1626347839754" />
+    <state width="1077" height="252" key="GridCell.Tab.0.left" timestamp="1626347839754">
       <screen x="-1440" y="-137" width="1440" height="870" />
     </state>
-    <state width="1395" height="51" key="GridCell.Tab.0.left/0.0.1366.738/-1440.-137.1440.870@-1440.-137.1440.870" timestamp="1626333247369" />
-    <state width="1395" height="51" key="GridCell.Tab.0.right" timestamp="1626333247370">
+    <state width="1077" height="252" key="GridCell.Tab.0.left/0.0.1366.738/-1440.-137.1440.870@-1440.-137.1440.870" timestamp="1626347839754" />
+    <state width="1077" height="252" key="GridCell.Tab.0.right" timestamp="1626347839755">
       <screen x="-1440" y="-137" width="1440" height="870" />
     </state>
-    <state width="1395" height="51" key="GridCell.Tab.0.right/0.0.1366.738/-1440.-137.1440.870@-1440.-137.1440.870" timestamp="1626333247370" />
-    <state x="-1172" y="22" width="585" height="616" key="find.popup" timestamp="1626331290528">
+    <state width="1077" height="252" key="GridCell.Tab.0.right/0.0.1366.738/-1440.-137.1440.870@-1440.-137.1440.870" timestamp="1626347839755" />
+    <state x="-1172" y="22" width="585" height="616" key="find.popup" timestamp="1626347174118">
       <screen x="-1440" y="-137" width="1440" height="870" />
     </state>
-    <state x="-1172" y="22" width="585" height="616" key="find.popup/0.0.1366.738/-1440.-137.1440.870@-1440.-137.1440.870" timestamp="1626331290528" />
+    <state x="-1172" y="22" width="585" height="616" key="find.popup/0.0.1366.738/-1440.-137.1440.870@-1440.-137.1440.870" timestamp="1626347174118" />
     <state x="-1064" y="129" key="run.anything.popup" timestamp="1626232456356">
       <screen x="-1440" y="-137" width="1440" height="870" />
     </state>
