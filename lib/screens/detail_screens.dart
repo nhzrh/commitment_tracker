@@ -2,13 +2,13 @@ import 'package:commitment_tracker/components/drop_down_field.dart';
 import 'package:commitment_tracker/components/text_form_field.dart';
 import 'package:commitment_tracker/helper/dart/utils.dart';
 import 'package:commitment_tracker/models/commitments.dart';
+import 'package:commitment_tracker/services/boxes.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_colorpicker/flutter_colorpicker.dart';
 
 class DetailScreen extends StatefulWidget {
   final Commitment commitment;
-  final Function add;
-  const DetailScreen({Key key, this.commitment, this.add}) : super(key: key);
+  const DetailScreen({Key key, this.commitment}) : super(key: key);
 
   @override
   _DetailScreenState createState() => _DetailScreenState();
@@ -25,16 +25,83 @@ class _DetailScreenState extends State<DetailScreen> {
   void changeColor() {
     setState(() {
       currentColor = pickedColor;
-      _commitment.color = currentColor;
+      _commitment.color = currentColor.value;
     });
   }
 
   @override
   void initState() {
     _commitment = widget.commitment ?? Commitment();
-    currentColor = _commitment.color ?? Colors.white;
+    currentColor = _commitment.color.toColor ?? Colors.white;
     pickedColor = currentColor;
     super.initState();
+  }
+
+  void addCommitment(Commitment data) {
+    if (widget.commitment == null) {
+      final box = Boxes.getCommitments();
+      box.add(data);
+    } else
+      data.save();
+  }
+
+  void blockPicker() {
+    showDialog(
+      context: context,
+      builder: (BuildContext context) {
+        bool isCustom = false;
+        return AlertDialog(
+          title: Text('Select a color'),
+          content: StatefulBuilder(
+            builder: (context, setState) {
+              return SingleChildScrollView(
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.end,
+                  children: [
+                    isCustom
+                        ? ColorPicker(
+                            pickerColor: currentColor,
+                            onColorChanged: changePickedColor,
+                            colorPickerWidth: 300.0,
+                            pickerAreaHeightPercent: 0.7,
+                            enableAlpha: true,
+                            displayThumbColor: true,
+                            showLabel: true,
+                            paletteType: PaletteType.hsv,
+                            pickerAreaBorderRadius: const BorderRadius.only(
+                              topLeft: const Radius.circular(2.0),
+                              topRight: const Radius.circular(2.0),
+                            ),
+                          )
+                        : BlockPicker(
+                            pickerColor: currentColor,
+                            onColorChanged: changePickedColor,
+                          ),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        TextButton(
+                            onPressed: () {
+                              setState(() => isCustom = !isCustom);
+                            },
+                            child: Text(isCustom ? 'Back' : 'Custom')),
+                        TextButton(
+                          onPressed: () {
+                            changeColor();
+                            Navigator.pop(context);
+                          },
+                          child: Text('Select'),
+                        ),
+                      ],
+                    ),
+                  ],
+                ),
+              );
+            },
+          ),
+        );
+      },
+    );
   }
 
   @override
@@ -50,7 +117,7 @@ class _DetailScreenState extends State<DetailScreen> {
               onPressed: () {
                 if (_formKey.currentState != null && _formKey.currentState.validate()) {
                   _formKey.currentState?.save();
-                  widget.add(_commitment);
+                  addCommitment(_commitment);
                   Navigator.pop(context);
                 }
               },
@@ -68,7 +135,7 @@ class _DetailScreenState extends State<DetailScreen> {
                 children: [
                   MyTextFormField(
                     info: 'Commitment Value',
-                    initialValue: _commitment.value.toString(),
+                    initialValue: _commitment.value != null ? _commitment.value.toString() : null,
                     hintText: '0.0',
                     isRequired: true,
                     isNumeric: true,
@@ -149,44 +216,10 @@ class _DetailScreenState extends State<DetailScreen> {
                         Container(
                           alignment: Alignment.centerLeft,
                           child: ElevatedButton(
-                            onPressed: () {
-                              print('onClick');
-                              showDialog(
-                                context: context,
-                                builder: (BuildContext context) {
-                                  return AlertDialog(
-                                    title: Text('Select a color'),
-                                    content: SingleChildScrollView(
-                                      child: Column(
-                                        crossAxisAlignment: CrossAxisAlignment.end,
-                                        children: [
-                                          BlockPicker(
-                                            pickerColor: currentColor,
-                                            onColorChanged: changePickedColor,
-                                          ),
-                                          Row(
-                                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                                            children: [
-                                              TextButton(onPressed: () {}, child: Text('Custom')),
-                                              TextButton(
-                                                onPressed: () {
-                                                  changeColor();
-                                                  Navigator.pop(context);
-                                                },
-                                                child: Text('Select'),
-                                              ),
-                                            ],
-                                          ),
-                                        ],
-                                      ),
-                                    ),
-                                  );
-                                },
-                              );
-                            },
+                            onPressed: () => blockPicker(),
                             child: Text(
                               'Choose your Color',
-                              style: TextStyle(color: Utils.textColorForBackground(currentColor)),
+                              style: TextStyle(color: currentColor.textColorForBackground),
                             ),
                             style: ElevatedButton.styleFrom(
                               primary: currentColor,

@@ -1,30 +1,29 @@
-import 'dart:ui';
+import 'package:hive/hive.dart';
 
-enum BillingPeriod {
-  daily,
-  weekly,
-  monthly,
-  yearly,
-}
+part 'commitments.g.dart';
 
-const Map<BillingPeriod, String> billPeriod = {
-  BillingPeriod.daily: 'Daily',
-  BillingPeriod.weekly: 'Weekly',
-  BillingPeriod.monthly: 'Monthly',
-  BillingPeriod.yearly: 'Yearly',
-};
-
-class Commitment {
-  String name; //name of the commitment
-  String description; //description of the commitment
-  double value = 0.0; //the value of the commitment
-  String label; //label of the commitment
+@HiveType(typeId: 0)
+class Commitment extends HiveObject {
+  @HiveField(0)
+  String name;
+  @HiveField(1)
+  String description;
+  @HiveField(2)
+  double value = 0.0;
+  @HiveField(3)
+  String label;
+  @HiveField(4)
   String billingPeriod;
+  @HiveField(5)
   String note;
-  Color color;
+  @HiveField(6)
+  int color;
+  @HiveField(7)
   bool isCompleted = false;
-  bool isRecurring = false; //either it is recurring or not
-  bool isSync = false; //either the data is sync
+  @HiveField(8)
+  bool isRecurring = false;
+  @HiveField(9)
+  bool isSync = false;
 
   Commitment({
     this.name,
@@ -44,3 +43,17 @@ class Commitment {
     return 'Commitment({name="$name", description="$description", value=$value, label="$label", billingPeriod="$billingPeriod", note="$note", isRecurring=$isRecurring, isSync=$isSync,});';
   }
 }
+
+enum BillingPeriod {
+  daily,
+  weekly,
+  monthly,
+  yearly,
+}
+
+const Map<BillingPeriod, String> billPeriod = {
+  BillingPeriod.daily: 'Daily',
+  BillingPeriod.weekly: 'Weekly',
+  BillingPeriod.monthly: 'Monthly',
+  BillingPeriod.yearly: 'Yearly',
+};

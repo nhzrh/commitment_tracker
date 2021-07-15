@@ -20,10 +20,13 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="97a3a003-ee20-4826-a4e3-10a752a40eb1" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/lib/helper/dart/utils.dart" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/models/commitments.g.dart" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/screens/view_screen.dart" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/services/boxes.dart" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/components/drop_down_field.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/components/drop_down_field.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/components/text_form_field.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/components/text_form_field.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/android/commitment_tracker_android.iml" beforeDir="false" afterPath="$PROJECT_DIR$/android/commitment_tracker_android.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/helper/dart/route_generator.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/helper/dart/route_generator.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/helper/dart/utils.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/helper/dart/utils.dart" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/lib/main.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/main.dart" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/lib/models/commitments.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/models/commitments.dart" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/lib/screens/detail_screens.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/screens/detail_screens.dart" afterDir="false" />
@@ -35,20 +38,26 @@
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
-  <component name="ExecutionTargetManager" SELECTED_TARGET="device_and_snapshot_combo_box_target[Nexus_6_API_30]" />
+  <component name="ExecutionTargetManager" SELECTED_TARGET="device_and_snapshot_combo_box_target[Pixel_4_XL_API_30]" />
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="ProjectId" id="1vHpIMTUaUyObmJBGsmf6S7bUDs" />
+  <component name="ProjectLevelVcsManager">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
+    <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="dart.analysis.tool.window.force.activate" value="true" />
     <property name="dart.analysis.tool.window.visible" value="false" />
     <property name="io.flutter.reload.alreadyRun" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../samples/Flutter-Todolist" />
     <property name="show.migrate.to.gradle.popup" value="false" />
   </component>
   <component name="SvnConfiguration">
@@ -62,6 +71,14 @@
       <option name="presentableId" value="Default" />
       <updated>1626228787300</updated>
     </task>
+    <task id="LOCAL-00001" summary="Setup the basic UI">
+      <created>1626257127727</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1626257127727</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -74,28 +91,46 @@
         </entry>
       </map>
     </option>
+    <option name="oldMeFiltersMigrated" value="true" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
+    <MESSAGE value="Setup the basic UI" />
+    <option name="LAST_COMMIT_MESSAGE" value="Setup the basic UI" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="-1348" y="-45" width="1256" height="686" key="AVDManager" timestamp="1626233224220">
+    <state x="-1348" y="-45" width="1256" height="686" key="AVDManager" timestamp="1626317230515">
       <screen x="-1440" y="-137" width="1440" height="870" />
     </state>
-    <state x="-1348" y="-45" width="1256" height="686" key="AVDManager/0.0.1366.738/-1440.-137.1440.870@-1440.-137.1440.870" timestamp="1626233224220" />
-    <state width="1071" height="276" key="GridCell.Tab.0.bottom" timestamp="1626253927953">
+    <state x="-1348" y="-45" width="1256" height="686" key="AVDManager/0.0.1366.738/-1440.-137.1440.870@-1440.-137.1440.870" timestamp="1626317230515" />
+    <state x="-1347" y="-37" width="933" height="677" key="DiffContextDialog" timestamp="1626257814955">
       <screen x="-1440" y="-137" width="1440" height="870" />
     </state>
-    <state width="1071" height="276" key="GridCell.Tab.0.bottom/0.0.1366.738/-1440.-137.1440.870@-1440.-137.1440.870" timestamp="1626253927953" />
-    <state width="1071" height="276" key="GridCell.Tab.0.center" timestamp="1626253927952">
+    <state x="-1347" y="-37" width="933" height="677" key="DiffContextDialog/0.0.1366.738/-1440.-137.1440.870@-1440.-137.1440.870" timestamp="1626257814955" />
+    <state x="-1101" y="55" key="FileChooserDialogImpl" timestamp="1626332553485">
       <screen x="-1440" y="-137" width="1440" height="870" />
     </state>
-    <state width="1071" height="276" key="GridCell.Tab.0.center/0.0.1366.738/-1440.-137.1440.870@-1440.-137.1440.870" timestamp="1626253927952" />
-    <state width="1071" height="276" key="GridCell.Tab.0.left" timestamp="1626253927952">
+    <state x="-1101" y="55" key="FileChooserDialogImpl/0.0.1366.738/-1440.-137.1440.870@-1440.-137.1440.870" timestamp="1626332553485" />
+    <state width="1395" height="51" key="GridCell.Tab.0.bottom" timestamp="1626333247370">
       <screen x="-1440" y="-137" width="1440" height="870" />
     </state>
-    <state width="1071" height="276" key="GridCell.Tab.0.left/0.0.1366.738/-1440.-137.1440.870@-1440.-137.1440.870" timestamp="1626253927952" />
-    <state width="1071" height="276" key="GridCell.Tab.0.right" timestamp="1626253927953">
+    <state width="1395" height="51" key="GridCell.Tab.0.bottom/0.0.1366.738/-1440.-137.1440.870@-1440.-137.1440.870" timestamp="1626333247370" />
+    <state width="1395" height="51" key="GridCell.Tab.0.center" timestamp="1626333247370">
       <screen x="-1440" y="-137" width="1440" height="870" />
     </state>
-    <state width="1071" height="276" key="GridCell.Tab.0.right/0.0.1366.738/-1440.-137.1440.870@-1440.-137.1440.870" timestamp="1626253927953" />
+    <state width="1395" height="51" key="GridCell.Tab.0.center/0.0.1366.738/-1440.-137.1440.870@-1440.-137.1440.870" timestamp="1626333247370" />
+    <state width="1395" height="51" key="GridCell.Tab.0.left" timestamp="1626333247369">
+      <screen x="-1440" y="-137" width="1440" height="870" />
+    </state>
+    <state width="1395" height="51" key="GridCell.Tab.0.left/0.0.1366.738/-1440.-137.1440.870@-1440.-137.1440.870" timestamp="1626333247369" />
+    <state width="1395" height="51" key="GridCell.Tab.0.right" timestamp="1626333247370">
+      <screen x="-1440" y="-137" width="1440" height="870" />
+    </state>
+    <state width="1395" height="51" key="GridCell.Tab.0.right/0.0.1366.738/-1440.-137.1440.870@-1440.-137.1440.870" timestamp="1626333247370" />
+    <state x="-1172" y="22" width="585" height="616" key="find.popup" timestamp="1626331290528">
+      <screen x="-1440" y="-137" width="1440" height="870" />
+    </state>
+    <state x="-1172" y="22" width="585" height="616" key="find.popup/0.0.1366.738/-1440.-137.1440.870@-1440.-137.1440.870" timestamp="1626331290528" />
     <state x="-1064" y="129" key="run.anything.popup" timestamp="1626232456356">
       <screen x="-1440" y="-137" width="1440" height="870" />
     </state>
