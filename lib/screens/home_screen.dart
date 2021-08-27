@@ -137,15 +137,15 @@ class _HomeScreenState extends State<HomeScreen> {
 
   Widget buildCardItem(Commitment e) {
     return Slidable(
-      key: Key(e.name),
+      key: Key(UniqueKey().toString()),
       actionPane: SlidableDrawerActionPane(),
       actionExtentRatio: 0.2,
       dismissal: SlidableDismissal(
         child: SlidableDrawerDismissal(),
         onDismissed: (actionType) {
-          if(actionType == SlideActionType.primary) {
+          if (actionType == SlideActionType.primary) {
             archiveCommitment(e);
-          }else {
+          } else {
             deleteCommitment(e);
           }
         },
