@@ -20,17 +20,54 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="97a3a003-ee20-4826-a4e3-10a752a40eb1" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/assets/ic_launcher.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/base/base_stateful.dart" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/common/components/custom_dialog.dart" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/common/components/drawer_list.dart" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/common/constant.dart" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/common/tab_item.dart" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/common/utils.dart" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/common/utils/cryptography_helper.dart" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/common/utils/global_data.dart" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/common/utils/session_timer.dart" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/common/utils/user_device_info.dart" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/common/utils/user_secure_storage.dart" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/models/month_model.dart" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/models/security_model.dart" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/screens/authentication_screen.dart" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/screens/commitment.dart" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/screens/cryptography_screen.dart" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/screens/device_info_screen.dart" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/screens/expansion_screen.dart" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/screens/logout_screen.dart" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/screens/page_1.dart" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/screens/tab_1.dart" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/screens/tab_2.dart" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/android/app/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/android/app/build.gradle" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/android/commitment_tracker_android.iml" beforeDir="false" afterPath="$PROJECT_DIR$/android/commitment_tracker_android.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/components/drop_down_field.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/common/components/drop_down_field.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/components/text_form_field.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/common/components/text_form_field.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/helper/dart/route_generator.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/common/utils/route_generator.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/helper/dart/utils.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/common/utils/custom_colors.dart" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/lib/main.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/main.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/screens/detail_screens.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/screens/detail_screens.dart" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/lib/screens/home_screen.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/screens/home_screen.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/services/boxes.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/services/boxes.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pubspec.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/pubspec.yaml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
-  <component name="ExecutionTargetManager" SELECTED_TARGET="device_and_snapshot_combo_box_target[GU5985DEGEIBTCMB]" />
+  <component name="ExecutionTargetManager" SELECTED_TARGET="device_and_snapshot_combo_box_target[Nexus_6_API_30]" />
   <component name="Git.Settings">
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="main" />
+      </map>
+    </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="ProjectId" id="1vHpIMTUaUyObmJBGsmf6S7bUDs" />
@@ -48,8 +85,22 @@
     <property name="dart.analysis.tool.window.force.activate" value="true" />
     <property name="dart.analysis.tool.window.visible" value="false" />
     <property name="io.flutter.reload.alreadyRun" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../../../Personal/GitHub/eprays/client" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/assets" />
     <property name="show.migrate.to.gradle.popup" value="false" />
+  </component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\sdghazali\Documents\Silverlake\Flutter_Project\TryAndError\commitment_tracker\lib\common" />
+      <recent name="C:\Users\sdghazali\Documents\Silverlake\Flutter_Project\TryAndError\commitment_tracker\lib\common\components" />
+      <recent name="C:\Users\sdghazali\Documents\Silverlake\Flutter_Project\TryAndError\commitment_tracker\lib\utils" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\sdghazali\Documents\Silverlake\Flutter_Project\TryAndError\commitment_tracker\assets" />
+      <recent name="C:\Users\sdghazali\Documents\Silverlake\Flutter_Project\TryAndError\commitment_tracker\lib\common\components" />
+      <recent name="C:\Users\sdghazali\Documents\Silverlake\Flutter_Project\TryAndError\commitment_tracker\lib\screens" />
+      <recent name="C:\Users\sdghazali\Documents\Silverlake\Flutter_Project\TryAndError\commitment_tracker\lib\common" />
+      <recent name="C:\Users\sdghazali\Documents\Silverlake\Flutter_Project\TryAndError\commitment_tracker\lib\base" />
+    </key>
   </component>
   <component name="SvnConfiguration">
     <configuration />
@@ -83,7 +134,14 @@
       <option name="project" value="LOCAL" />
       <updated>1626348246143</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="Change widget key to unique key">
+      <created>1630071802335</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1630071802335</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -103,13 +161,18 @@
     <MESSAGE value="Setup the basic UI" />
     <MESSAGE value="Add hive database for persistent data" />
     <MESSAGE value="Update UI" />
-    <option name="LAST_COMMIT_MESSAGE" value="Update UI" />
+    <MESSAGE value="Change widget key to unique key" />
+    <option name="LAST_COMMIT_MESSAGE" value="Change widget key to unique key" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="-1348" y="-45" width="1256" height="686" key="AVDManager" timestamp="1626317230515">
+    <state x="-1154" y="221" key="#com.intellij.refactoring.move.MoveHandler.SelectRefactoringDialog" timestamp="1630906246573">
       <screen x="-1440" y="-137" width="1440" height="870" />
     </state>
-    <state x="-1348" y="-45" width="1256" height="686" key="AVDManager/0.0.1366.738/-1440.-137.1440.870@-1440.-137.1440.870" timestamp="1626317230515" />
+    <state x="-1154" y="221" key="#com.intellij.refactoring.move.MoveHandler.SelectRefactoringDialog/0.0.1366.738/-1440.-137.1440.870@-1440.-137.1440.870" timestamp="1630906246573" />
+    <state x="87" y="78" width="1192" height="582" key="AVDManager" timestamp="1630904104486">
+      <screen x="0" y="0" width="1366" height="738" />
+    </state>
+    <state x="87" y="78" width="1192" height="582" key="AVDManager/0.0.1366.738/-1440.-137.1440.870@-1440.-137.1440.870" timestamp="1630904104486" />
     <state x="-1347" y="-37" width="933" height="677" key="DiffContextDialog" timestamp="1626257814955">
       <screen x="-1440" y="-137" width="1440" height="870" />
     </state>
@@ -119,30 +182,30 @@
     </state>
     <state x="-1101" y="55" key="FileChooserDialogImpl/0.0.1366.738/-1440.-137.1440.870@-1440.-137.1440.870" timestamp="1626332553485" />
     <state x="322" y="163" key="FileChooserDialogImpl/0.0.1366.738/-1440.-137.1440.870@0.0.1366.738" timestamp="1626787657730" />
-    <state width="1321" height="27" key="GridCell.Tab.0.bottom" timestamp="1629777347445">
-      <screen x="0" y="0" width="1366" height="738" />
-    </state>
-    <state width="1077" height="252" key="GridCell.Tab.0.bottom/0.0.1366.738/-1440.-137.1440.870@-1440.-137.1440.870" timestamp="1626348260896" />
-    <state width="1321" height="27" key="GridCell.Tab.0.bottom/0.0.1366.738/-1440.-137.1440.870@0.0.1366.738" timestamp="1629777347445" />
-    <state width="1321" height="27" key="GridCell.Tab.0.center" timestamp="1629777347444">
-      <screen x="0" y="0" width="1366" height="738" />
-    </state>
-    <state width="1077" height="252" key="GridCell.Tab.0.center/0.0.1366.738/-1440.-137.1440.870@-1440.-137.1440.870" timestamp="1626348260895" />
-    <state width="1321" height="27" key="GridCell.Tab.0.center/0.0.1366.738/-1440.-137.1440.870@0.0.1366.738" timestamp="1629777347444" />
-    <state width="1321" height="27" key="GridCell.Tab.0.left" timestamp="1629777347444">
-      <screen x="0" y="0" width="1366" height="738" />
-    </state>
-    <state width="1077" height="252" key="GridCell.Tab.0.left/0.0.1366.738/-1440.-137.1440.870@-1440.-137.1440.870" timestamp="1626348260894" />
-    <state width="1321" height="27" key="GridCell.Tab.0.left/0.0.1366.738/-1440.-137.1440.870@0.0.1366.738" timestamp="1629777347444" />
-    <state width="1321" height="27" key="GridCell.Tab.0.right" timestamp="1629777347444">
-      <screen x="0" y="0" width="1366" height="738" />
-    </state>
-    <state width="1077" height="252" key="GridCell.Tab.0.right/0.0.1366.738/-1440.-137.1440.870@-1440.-137.1440.870" timestamp="1626348260895" />
-    <state width="1321" height="27" key="GridCell.Tab.0.right/0.0.1366.738/-1440.-137.1440.870@0.0.1366.738" timestamp="1629777347444" />
-    <state x="-1287" y="31" key="Vcs.Push.Dialog.v2" timestamp="1626348251245">
+    <state width="1395" height="392" key="GridCell.Tab.0.bottom" timestamp="1630914455701">
       <screen x="-1440" y="-137" width="1440" height="870" />
     </state>
-    <state x="-1287" y="31" key="Vcs.Push.Dialog.v2/0.0.1366.738/-1440.-137.1440.870@-1440.-137.1440.870" timestamp="1626348251245" />
+    <state width="1395" height="392" key="GridCell.Tab.0.bottom/0.0.1366.738/-1440.-137.1440.870@-1440.-137.1440.870" timestamp="1630914455701" />
+    <state width="1321" height="27" key="GridCell.Tab.0.bottom/0.0.1366.738/-1440.-137.1440.870@0.0.1366.738" timestamp="1629777347445" />
+    <state width="1395" height="392" key="GridCell.Tab.0.center" timestamp="1630914455701">
+      <screen x="-1440" y="-137" width="1440" height="870" />
+    </state>
+    <state width="1395" height="392" key="GridCell.Tab.0.center/0.0.1366.738/-1440.-137.1440.870@-1440.-137.1440.870" timestamp="1630914455701" />
+    <state width="1321" height="27" key="GridCell.Tab.0.center/0.0.1366.738/-1440.-137.1440.870@0.0.1366.738" timestamp="1629777347444" />
+    <state width="1395" height="392" key="GridCell.Tab.0.left" timestamp="1630914455701">
+      <screen x="-1440" y="-137" width="1440" height="870" />
+    </state>
+    <state width="1395" height="392" key="GridCell.Tab.0.left/0.0.1366.738/-1440.-137.1440.870@-1440.-137.1440.870" timestamp="1630914455701" />
+    <state width="1321" height="27" key="GridCell.Tab.0.left/0.0.1366.738/-1440.-137.1440.870@0.0.1366.738" timestamp="1629777347444" />
+    <state width="1395" height="392" key="GridCell.Tab.0.right" timestamp="1630914455701">
+      <screen x="-1440" y="-137" width="1440" height="870" />
+    </state>
+    <state width="1395" height="392" key="GridCell.Tab.0.right/0.0.1366.738/-1440.-137.1440.870@-1440.-137.1440.870" timestamp="1630914455701" />
+    <state width="1321" height="27" key="GridCell.Tab.0.right/0.0.1366.738/-1440.-137.1440.870@0.0.1366.738" timestamp="1629777347444" />
+    <state x="-1287" y="31" key="Vcs.Push.Dialog.v2" timestamp="1630071822536">
+      <screen x="-1440" y="-137" width="1440" height="870" />
+    </state>
+    <state x="-1287" y="31" key="Vcs.Push.Dialog.v2/0.0.1366.738/-1440.-137.1440.870@-1440.-137.1440.870" timestamp="1630071822536" />
     <state x="-1172" y="22" width="585" height="616" key="find.popup" timestamp="1626347174118">
       <screen x="-1440" y="-137" width="1440" height="870" />
     </state>

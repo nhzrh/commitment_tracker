@@ -18,27 +18,29 @@ class MyTextFormField extends StatelessWidget {
   final VoidCallback onEditingComplete;
   final ValueChanged<String> onFieldSubmitted;
   final TextInputAction textInputAction;
+  final bool isOther;
 
-  const MyTextFormField({
-    Key key,
-    this.controller,
-    @required this.info,
-    this.initialValue,
-    this.hintText,
-    this.validator,
-    this.onSaved,
-    this.onChange,
-    this.suffixIcon,
-    this.isPassword = false,
-    this.isEmail = false,
-    this.isPhone = false,
-    this.isNumeric = false,
-    this.isRequired = false,
-    this.isMultiLine = false,
-    this.onEditingComplete,
-    this.onFieldSubmitted,
-    this.textInputAction,
-  }) : super(key: key);
+  const MyTextFormField(
+      {Key key,
+      this.controller,
+      @required this.info,
+      this.initialValue,
+      this.hintText,
+      this.validator,
+      this.onSaved,
+      this.onChange,
+      this.suffixIcon,
+      this.isPassword = false,
+      this.isEmail = false,
+      this.isPhone = false,
+      this.isNumeric = false,
+      this.isRequired = false,
+      this.isMultiLine = false,
+      this.onEditingComplete,
+      this.onFieldSubmitted,
+      this.textInputAction,
+      this.isOther = false})
+      : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -53,7 +55,7 @@ class MyTextFormField extends StatelessWidget {
               children: [
                 Text(info,
                     style: TextStyle(
-                      color: Colors.white,
+                      color: isOther ? null : Colors.white,
                       fontWeight: FontWeight.bold,
                     )),
                 SizedBox(width: 4),
@@ -68,7 +70,7 @@ class MyTextFormField extends StatelessWidget {
               controller: controller,
               initialValue: initialValue != null && controller == null ? initialValue : null,
               autovalidateMode: AutovalidateMode.onUserInteraction,
-              style: TextStyle(color: Colors.white),
+              style: TextStyle(color: isOther ? null : Colors.white),
               decoration: InputDecoration(
                 hintText: hintText,
                 contentPadding: EdgeInsets.all(15.0),
@@ -80,7 +82,7 @@ class MyTextFormField extends StatelessWidget {
                   ),
                 ),
                 filled: true,
-                fillColor: Colors.blueGrey.shade800,
+                fillColor: isOther ? null : Colors.blueGrey.shade800,
                 suffixIcon: suffixIcon,
               ),
               obscureText: isPassword,

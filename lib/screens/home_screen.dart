@@ -1,11 +1,21 @@
-import 'package:commitment_tracker/helper/dart/route_generator.dart';
-import 'package:commitment_tracker/helper/dart/utils.dart';
-import 'package:commitment_tracker/models/commitments.dart';
-import 'package:commitment_tracker/services/boxes.dart';
+import 'package:commitment_tracker/base/base_stateful.dart';
+import 'package:commitment_tracker/common/components/drawer_list.dart';
+import 'package:commitment_tracker/common/constant.dart';
+import 'package:commitment_tracker/common/tab_item.dart';
+import 'package:commitment_tracker/common/utils.dart';
+import 'package:commitment_tracker/common/utils/route_generator.dart';
+import 'package:commitment_tracker/common/utils/session_timer.dart';
+import 'package:commitment_tracker/common/utils/user_secure_storage.dart';
+import 'package:commitment_tracker/models/security_model.dart';
+import 'package:commitment_tracker/screens/tab_1.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_slidable/flutter_slidable.dart';
-import 'package:hive/hive.dart';
-import 'package:hive_flutter/hive_flutter.dart';
+import 'package:flutter/services.dart';
+import 'package:quiver/async.dart';
+
+import 'authentication_screen.dart';
+import 'cryptography_screen.dart';
+import 'device_info_screen.dart';
+import 'expansion_screen.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({Key key}) : super(key: key);
@@ -14,294 +24,259 @@ class HomeScreen extends StatefulWidget {
   _HomeScreenState createState() => _HomeScreenState();
 }
 
-class _HomeScreenState extends State<HomeScreen> {
-  List<Commitment> commitments = [];
+class _HomeScreenState extends BaseStateful<HomeScreen> with WidgetsBindingObserver {
+  SecurityModel _securityModel = SecurityModel();
+  TabItem _currentTab = TabItem.expansion;
+  String title = tabName[TabItem.expansion];
+  List<Widget> _children;
+
+  bool loading = true;
+  bool isAuthenticate = false;
+  String email;
+  String password;
+
+  CountdownTimer _countdownTimer;
+
+  @override
+  void didChangeAppLifecycleState(AppLifecycleState state) {
+    if (isAuthenticate) {
+      print("AppLifecycleState :::: $state");
+      if (state == AppLifecycleState.paused) {
+        _countdownTimer = SessionTimer.start(context);
+      } else if (state == AppLifecycleState.resumed) {
+        if (_countdownTimer != null && _countdownTimer.remaining > Duration(seconds: 0)) {
+          print("AppLifeCycleState timer didn't complete");
+          //Let user continue using the app
+        } else {
+          print("AppLifeCycleState timeout!");
+        }
+        _countdownTimer = SessionTimer.stop();
+      }
+    }
+    super.didChangeAppLifecycleState(state);
+  }
+
+  @override
+  void initState() {
+    WidgetsBinding.instance.addObserver(this);
+    initPlatformState();
+    init();
+    _children = [
+      AuthenticationScreen(
+        onInit: init,
+        selectedTab: selectTab,
+      ),
+      ExpansionScreen(),
+      DeviceInfoScreen(),
+      CryptographyScreen(),
+      TabOne(title: tabName[TabItem.pageOne]),
+      // TabTwo(title: tabName[TabItem.pageTwo]),
+    ];
+
+    // You can let the plugin handle fetching the status and showing a dialog,
+    Utils.basicAppVersionCheck(context);
+    // or you can fetch the status and display your own dialog, or no dialog.
+    // Utils.advancedStatusCheck(context);
+    super.initState();
+  }
 
   @override
   void dispose() {
-    Hive.box(commitmentBox).close();
+    WidgetsBinding.instance.removeObserver(this);
     super.dispose();
   }
 
+  Future init() async {
+    final secureEmail = await UserSecureStorage.getSecureData(Constants.skEmail);
+    final securePassword = await UserSecureStorage.getSecureData(Constants.skPassword);
+    if (secureEmail.isNotNullOrEmpty && securePassword.isNotNullOrEmpty) {
+      setState(() {
+        email = secureEmail;
+        password = securePassword;
+        isAuthenticate = true;
+        loading = false;
+      });
+    } else {
+      setState(() {
+        email = secureEmail;
+        password = securePassword;
+        isAuthenticate = false;
+        loading = false;
+        _currentTab = TabItem.signIn;
+        title = tabName[TabItem.signIn];
+      });
+    }
+  }
+
+  // Platform messages are asynchronous, so we initialize in an async method.
+  Future<void> initPlatformState() async {
+    SecurityModel result = await Utils.safeDeviceCheck(context);
+    // If the widget was removed from the tree while the asynchronous platform
+    // message was in flight, we want to discard the reply rather than calling
+    // setState to update our non-existent appearance.
+    if (!mounted) return;
+
+    setState(() {
+      _securityModel = result;
+    });
+  }
+
+  bool closeApp() {
+    SystemNavigator.pop();
+    return false;
+  }
+
+  Future logout() async {
+    await UserSecureStorage.deleteAll();
+    Navigator.pushReplacementNamed(context, Routes.logout);
+    // init();
+  }
+
+  void selectTab(TabItem tabItem, {bool isChangeTab, bool hasUser}) {
+    setState(() {
+      if (isChangeTab && hasUser) {
+        _currentTab = tabItem;
+        title = tabName[tabItem];
+      } else {
+        _currentTab = TabItem.signIn;
+        title = tabName[TabItem.signIn];
+      }
+    });
+  }
+
   @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      body: ValueListenableBuilder<Box<Commitment>>(
-        valueListenable: Boxes.getCommitments().listenable(),
-        builder: (context, box, _) {
-          final data = box.values.toList().cast<Commitment>();
-          commitments = data;
-          return buildContentList(data);
-        },
-      ),
-      floatingActionButton: FloatingActionButton(
-        onPressed: () => Navigator.pushNamed(
-          context,
-          Routes.detail,
-          arguments: CommonArgument(commitment: null),
-        ),
-        child: Icon(Icons.add),
-        elevation: 2.0,
-      ),
-    );
-  }
+  List<Widget> getAction() => null;
 
-  Widget buildContentList(List<Commitment> data) {
-    return SafeArea(
-      child: Column(children: [
-        Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 20.0, vertical: 15.0),
-          child: Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+  @override
+  String getAppTitle() => title;
+
+  @override
+  Widget getBottomNavigation() => null;
+
+  @override
+  Widget getDrawer() => isAuthenticate
+      ? Drawer(
+          child: Column(
             children: [
-              Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  Text(
-                    billPeriod[BillingPeriod.monthly],
-                    style: TextStyle(color: Colors.white),
+              DrawerHeader(
+                  decoration: BoxDecoration(
+                    color: Theme.of(context).primaryColor,
                   ),
-                  Text(
-                    'Commitment',
-                    style: TextStyle(
-                      fontWeight: FontWeight.bold,
-                      fontSize: 25.0,
-                      color: Colors.white,
+                  child: Container(
+                    width: double.infinity,
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.center,
+                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                      children: [
+                        Container(
+                          width: 80,
+                          height: 80,
+                          decoration: BoxDecoration(
+                            image: DecorationImage(
+                              fit: BoxFit.cover,
+                              image: Image.asset('assets/ic_launcher.png').image,
+                            ),
+                          ),
+                        ),
+                        Text(
+                          'Set text to something',
+                          style: TextStyle(color: Colors.white),
+                        )
+                      ],
                     ),
-                  ),
-                ],
-              ),
-              Column(
-                crossAxisAlignment: CrossAxisAlignment.end,
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  Text(
-                    Utils.getTotal(data) != 0.0
-                        ? Utils.getTotalAfter(data) != 0.0
-                            ? Utils.formatPrice('RM', Utils.getTotalAfter(data)) + ' left'
-                            : 'Completed'
-                        : '',
-                    style: TextStyle(color: Colors.white),
-                  ),
-                  Text(
-                    Utils.formatPrice('RM', Utils.getTotal(data)),
-                    style: TextStyle(
-                      fontWeight: FontWeight.bold,
-                      fontSize: 25.0,
-                      color: Colors.white,
-                    ),
-                  ),
-                ],
-              ),
-            ],
-          ),
-        ),
-        Expanded(
-          child: SingleChildScrollView(
-            child: Padding(
-              padding: const EdgeInsets.only(bottom: kFloatingActionButtonMargin + 50),
-              child: Column(
-                children: data.map(
-                  (e) {
-                    if (!e.isArchive) {
-                      return buildCardItem(e);
-                    }
-                    return Container();
-                  },
-                ).toList(),
-              ),
-            ),
-          ),
-        ),
-      ]),
-    );
-  }
-
-  void _showSnackBar(BuildContext context, String text) {
-    ScaffoldMessenger.of(context)
-      ..hideCurrentSnackBar()
-      ..showSnackBar(SnackBar(content: Text(text)));
-  }
-
-  void deleteCommitment(Commitment e) {
-    e.delete();
-    _showSnackBar(context, '${e.name} has been deleted');
-  }
-
-  void archiveCommitment(Commitment e) {
-    e.isArchive = true;
-    e.save();
-    _showSnackBar(context, '${e.name} has been archive');
-  }
-
-  Widget buildCardItem(Commitment e) {
-    return Slidable(
-      key: Key(UniqueKey().toString()),
-      actionPane: SlidableDrawerActionPane(),
-      actionExtentRatio: 0.2,
-      dismissal: SlidableDismissal(
-        child: SlidableDrawerDismissal(),
-        onDismissed: (actionType) {
-          if (actionType == SlideActionType.primary) {
-            archiveCommitment(e);
-          } else {
-            deleteCommitment(e);
-          }
-        },
-      ),
-      child: InkWell(
-        onTap: () => Navigator.pushNamed(
-          context,
-          Routes.detail,
-          arguments: CommonArgument(commitment: e),
-        ),
-        child: Container(
-          margin: EdgeInsets.fromLTRB(20, 0, 20, 15),
-          padding: EdgeInsets.symmetric(horizontal: 15.0, vertical: 13.0),
-          child: Row(
-            crossAxisAlignment: CrossAxisAlignment.center,
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: <Widget>[
-              Expanded(
-                child: Row(
-                  children: [
-                    Checkbox(
-                      activeColor: Colors.green,
-                      shape: CircleBorder(),
-                      value: e.isCompleted,
-                      onChanged: (b) {
-                        e.isCompleted = b;
-                        e.save();
+                  )),
+              !isAuthenticate
+                  ? DrawerList(
+                      tabItem: TabItem.signIn,
+                      currentTab: _currentTab,
+                      onTap: () {
+                        selectTab(TabItem.signIn, isChangeTab: false, hasUser: isAuthenticate);
                       },
-                    ),
-                    Expanded(
-                      child: Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          Text(
-                            e.name,
-                            style: TextStyle(
-                              color:
-                                  e.isCompleted ? CustomColors.TextGrey : CustomColors.TextHeader,
-                              decoration: e.isCompleted ? TextDecoration.lineThrough : null,
-                              fontWeight: FontWeight.w700,
-                              fontSize: 18,
-                            ),
-                          ),
-                          Visibility(
-                            visible: e.description.isNotNullOrEmpty,
-                            child: Text(
-                              e.description,
-                              style: TextStyle(
-                                color: e.isCompleted
-                                    ? CustomColors.TextGrey
-                                    : CustomColors.TextSubHeader,
-                                decoration: e.isCompleted ? TextDecoration.lineThrough : null,
-                                fontWeight: FontWeight.w600,
-                              ),
-                            ),
-                          ),
-                        ],
-                      ),
                     )
-                  ],
+                  : Container(),
+              DrawerList(
+                tabItem: TabItem.expansion,
+                currentTab: _currentTab,
+                onTap: () {
+                  selectTab(TabItem.expansion, isChangeTab: true, hasUser: isAuthenticate);
+                },
+              ),
+              DrawerList(
+                tabItem: TabItem.deviceInfo,
+                currentTab: _currentTab,
+                onTap: () {
+                  selectTab(TabItem.deviceInfo, isChangeTab: true, hasUser: isAuthenticate);
+                },
+              ),
+              DrawerList(
+                tabItem: TabItem.cryptography,
+                currentTab: _currentTab,
+                onTap: () {
+                  selectTab(TabItem.cryptography, isChangeTab: true, hasUser: isAuthenticate);
+                },
+              ),
+              DrawerList(
+                tabItem: TabItem.pageOne,
+                currentTab: _currentTab,
+                onTap: () {
+                  selectTab(TabItem.pageOne, isChangeTab: true, hasUser: isAuthenticate);
+                },
+              ),
+              // DrawerList(
+              //   tabItem: TabItem.pageTwo,
+              //   currentTab: _currentTab,
+              //   onTap: () {
+              //     selectTab(TabItem.pageTwo, isChangeTab: true, hasUser: isAuthenticate);
+              //   },
+              // ),
+              isAuthenticate
+                  ? DrawerList(
+                      tabItem: TabItem.logout,
+                      currentTab: _currentTab,
+                      onTap: () {
+                        logout();
+                        selectTab(TabItem.signIn, isChangeTab: true, hasUser: isAuthenticate);
+                      },
+                    )
+                  : Container(),
+              Expanded(
+                child: Align(
+                  alignment: Alignment.bottomCenter,
+                  child: Padding(
+                    padding: const EdgeInsets.only(bottom: 10.0),
+                    child: Column(
+                      mainAxisSize: MainAxisSize.min,
+                      children: [
+                        Text(
+                            'isJailBroken: ${_securityModel.isJailBroken == null ? "Unknown" : _securityModel.isJailBroken ? "YES" : "NO"}'),
+                        Text(
+                            'isRealDevice: ${_securityModel.isRealDevice == null ? "Unknown" : _securityModel.isRealDevice ? "YES" : "NO"}'),
+                        Text(
+                            'isOnExternalStorage: ${_securityModel.isOnExternalStorage == null ? "Unknown" : _securityModel.isOnExternalStorage ? "YES" : "NO"}'),
+                        Text(
+                            'isSafeDevice: ${_securityModel.isSafeDevice == null ? "Unknown" : _securityModel.isSafeDevice ? "YES" : "NO"}'),
+                      ],
+                    ),
+                  ),
                 ),
               ),
-              Padding(
-                padding: const EdgeInsets.only(left: 8.0),
-                child: Text(
-                  Utils.formatPrice('RM', e.value),
-                  style: TextStyle(
-                    color: e.isCompleted ? CustomColors.TextGrey : CustomColors.TextHeader,
-                    decoration: e.isCompleted ? TextDecoration.lineThrough : null,
-                    fontWeight: FontWeight.w700,
-                    fontSize: 18,
-                  ),
-                ),
-              )
             ],
           ),
-          decoration: BoxDecoration(
-            gradient: LinearGradient(
-              stops: [0.045, 0.048],
-              colors: [
-                e.color.toColor ?? Colors.white,
-                e.isCompleted ? CustomColors.BlackBackground : Colors.white
-              ],
-            ),
-            borderRadius: BorderRadius.all(
-              Radius.circular(5.0),
-            ),
-            boxShadow: [
-              BoxShadow(
-                color: CustomColors.BlackBorder,
-                blurRadius: 10.0,
-                spreadRadius: 5.0,
-                offset: Offset(0.0, 0.0),
-              ),
-            ],
-          ),
+        )
+      : null;
+
+  @override
+  Widget getFloatingActionButton() => null;
+
+  @override
+  Widget getChildView() => SingleChildScrollView(
+        child: Padding(
+          padding: const EdgeInsets.all(10.0),
+          child: loading
+              ? Container()
+              : !isAuthenticate
+                  ? _children[0]
+                  : _children[_currentTab.index],
         ),
-      ),
-      actions: [
-        SlideAction(
-          child: Container(
-            padding: EdgeInsets.only(bottom: 10),
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.center,
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                Container(
-                  height: 40,
-                  width: 40,
-                  decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(50),
-                      color: CustomColors.TrashRedBackground),
-                  child: Icon(Icons.archive),
-                ),
-                Padding(
-                  padding: const EdgeInsets.only(top: 8.0),
-                  child: Text(
-                    'Archive',
-                    style: TextStyle(color: Colors.white),
-                  ),
-                ),
-              ],
-            ),
-          ),
-          onTap: () => archiveCommitment(e),
-        ),
-      ],
-      secondaryActions: [
-        SlideAction(
-          child: Container(
-            padding: EdgeInsets.only(bottom: 10),
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.center,
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                Container(
-                  height: 40,
-                  width: 40,
-                  decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(50),
-                      color: CustomColors.TrashRedBackground),
-                  child: Icon(Icons.delete),
-                ),
-                Padding(
-                  padding: const EdgeInsets.only(top: 8.0),
-                  child: Text(
-                    'Delete',
-                    style: TextStyle(color: Colors.white),
-                  ),
-                ),
-              ],
-            ),
-          ),
-          onTap: () => deleteCommitment(e),
-        ),
-      ],
-    );
-  }
+      );
 }

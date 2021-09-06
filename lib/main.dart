@@ -1,5 +1,5 @@
-import 'package:commitment_tracker/helper/dart/route_generator.dart';
-import 'package:commitment_tracker/helper/dart/utils.dart';
+import 'package:commitment_tracker/common/constant.dart';
+import 'package:commitment_tracker/common/utils/route_generator.dart';
 import 'package:commitment_tracker/models/commitments.dart';
 import 'package:commitment_tracker/screens/home_screen.dart';
 import 'package:flutter/material.dart';
@@ -15,7 +15,7 @@ void main() async {
   ]);
   await Hive.initFlutter();
   Hive.registerAdapter(CommitmentAdapter());
-  await Hive.openBox<Commitment>(commitmentBox);
+  await Hive.openBox<Commitment>(Constants.commitmentBox);
 
   runApp(MyApp());
 }
@@ -29,13 +29,7 @@ class MyApp extends StatelessWidget {
       onGenerateRoute: RouteGenerator.generateRoute,
       themeMode: ThemeMode.system,
       theme: ThemeData(
-        primaryColor: Colors.black,
-        scaffoldBackgroundColor: Colors.blueGrey.shade900,
-        canvasColor: Colors.blueGrey.shade900,
-        appBarTheme: AppBarTheme(
-          backgroundColor: Colors.transparent,
-          elevation: 0,
-        ),
+        primarySwatch: Colors.blue,
       ),
       home: HomeScreen(),
     );

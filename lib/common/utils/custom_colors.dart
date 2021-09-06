@@ -1,42 +1,4 @@
-import 'package:commitment_tracker/models/commitments.dart';
 import 'package:flutter/material.dart';
-import 'package:intl/intl.dart';
-
-const commitmentBox = 'commitments';
-
-extension IntExtension on int {
-  Color get toColor => this != null ? Color(this) : null;
-}
-
-extension StringExtension on String {
-  bool get isNotNullOrEmpty => this != null && this.isNotEmpty;
-}
-
-extension ColorExtension on Color {
-  Color get textColorForBackground =>
-      ThemeData.estimateBrightnessForColor(this ?? Colors.white) == Brightness.dark
-          ? Colors.white
-          : Colors.black;
-}
-
-class Utils {
-  static final priceFormat = NumberFormat("#,##0.00", "en_US");
-  static double getTotal(List<Commitment> commitments) =>
-      commitments != null && commitments.isNotEmpty
-          ? commitments.map((e) => e.value).reduce((value, element) => value + element)
-          : 0.0;
-  static double getTotalAfter(List<Commitment> commitments) =>
-      commitments != null && commitments.isNotEmpty
-          ? commitments
-              .map((e) => e.isCompleted != true ? e.value : 0.0)
-              .reduce((value, element) => value + element)
-          : 0.0;
-
-  static formatPrice(String currSymbol, double price) {
-    var symbol = currSymbol != null ? '$currSymbol ' : '';
-    return symbol + priceFormat.format(price);
-  }
-}
 
 class CustomColors {
   static const Color GreyBackground = Color.fromRGBO(249, 252, 255, 1);
