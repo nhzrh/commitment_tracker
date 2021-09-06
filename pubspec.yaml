@@ -41,10 +41,10 @@ dependencies:
   safe_device: ^1.0.7
   new_version: ^0.2.2
   device_info_plus: ^2.1.0
-  network_info_plus: ^1.1.0
+#  network_info_plus: ^1.1.0
 
   #others
-  permission_handler: ^8.1.4+2
+#  permission_handler: ^8.1.4+2
   minimize_app: ^0.1.1
 #  location: ^4.3.0
   quiver: ^3.0.1

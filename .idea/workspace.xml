@@ -20,17 +20,13 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="97a3a003-ee20-4826-a4e3-10a752a40eb1" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/lib/common/utils/user_network_info.dart" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lib/models/network_info_model.dart" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lib/screens/network_screen.dart" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lib/screens/pemission_checker_screen.dart" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/android/app/src/main/kotlin/com/nhzrh/commitment_tracker/MainActivity.kt" beforeDir="false" afterPath="$PROJECT_DIR$/android/app/src/main/kotlin/com/nhzrh/commitment_tracker/MainActivity.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ios/Runner/AppDelegate.swift" beforeDir="false" afterPath="$PROJECT_DIR$/ios/Runner/AppDelegate.swift" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ios/Runner/Info.plist" beforeDir="false" afterPath="$PROJECT_DIR$/ios/Runner/Info.plist" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/lib/common/tab_item.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/common/tab_item.dart" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/lib/common/utils/route_generator.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/common/utils/route_generator.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/common/utils/user_network_info.dart" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/lib/screens/home_screen.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/screens/home_screen.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/screens/network_screen.dart" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/screens/pemission_checker_screen.dart" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/lib/screens/tab_2.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/screens/tab_2.dart" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pubspec.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/pubspec.yaml" afterDir="false" />
     </list>
@@ -126,7 +122,14 @@
       <option name="project" value="LOCAL" />
       <updated>1630914694149</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="Add network ingo&#10;Add permission checker&#10;Add screen shot &amp; screen record security disabled">
+      <created>1630916607088</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1630916607088</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -148,13 +151,18 @@
     <MESSAGE value="Update UI" />
     <MESSAGE value="Change widget key to unique key" />
     <MESSAGE value="migrate security functions" />
-    <option name="LAST_COMMIT_MESSAGE" value="migrate security functions" />
+    <MESSAGE value="Add network ingo&#10;Add permission checker&#10;Add screen shot &amp; screen record security disabled" />
+    <option name="LAST_COMMIT_MESSAGE" value="Add network ingo&#10;Add permission checker&#10;Add screen shot &amp; screen record security disabled" />
   </component>
   <component name="WindowStateProjectService">
     <state x="-1154" y="221" key="#com.intellij.refactoring.move.MoveHandler.SelectRefactoringDialog" timestamp="1630906246573">
       <screen x="-1440" y="-137" width="1440" height="870" />
     </state>
     <state x="-1154" y="221" key="#com.intellij.refactoring.move.MoveHandler.SelectRefactoringDialog/0.0.1366.738/-1440.-137.1440.870@-1440.-137.1440.870" timestamp="1630906246573" />
+    <state x="-991" y="44" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1630917204602">
+      <screen x="-1440" y="-137" width="1440" height="870" />
+    </state>
+    <state x="-991" y="44" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1366.738/-1440.-137.1440.870@-1440.-137.1440.870" timestamp="1630917204602" />
     <state x="87" y="78" width="1192" height="582" key="AVDManager" timestamp="1630904104486">
       <screen x="0" y="0" width="1366" height="738" />
     </state>
@@ -168,30 +176,30 @@
     </state>
     <state x="-1101" y="55" key="FileChooserDialogImpl/0.0.1366.738/-1440.-137.1440.870@-1440.-137.1440.870" timestamp="1626332553485" />
     <state x="322" y="163" key="FileChooserDialogImpl/0.0.1366.738/-1440.-137.1440.870@0.0.1366.738" timestamp="1626787657730" />
-    <state width="1395" height="313" key="GridCell.Tab.0.bottom" timestamp="1630916280142">
+    <state width="1395" height="406" key="GridCell.Tab.0.bottom" timestamp="1630916614857">
       <screen x="-1440" y="-137" width="1440" height="870" />
     </state>
-    <state width="1395" height="313" key="GridCell.Tab.0.bottom/0.0.1366.738/-1440.-137.1440.870@-1440.-137.1440.870" timestamp="1630916280142" />
+    <state width="1395" height="406" key="GridCell.Tab.0.bottom/0.0.1366.738/-1440.-137.1440.870@-1440.-137.1440.870" timestamp="1630916614857" />
     <state width="1321" height="27" key="GridCell.Tab.0.bottom/0.0.1366.738/-1440.-137.1440.870@0.0.1366.738" timestamp="1629777347445" />
-    <state width="1395" height="313" key="GridCell.Tab.0.center" timestamp="1630916280142">
+    <state width="1395" height="406" key="GridCell.Tab.0.center" timestamp="1630916614856">
       <screen x="-1440" y="-137" width="1440" height="870" />
     </state>
-    <state width="1395" height="313" key="GridCell.Tab.0.center/0.0.1366.738/-1440.-137.1440.870@-1440.-137.1440.870" timestamp="1630916280142" />
+    <state width="1395" height="406" key="GridCell.Tab.0.center/0.0.1366.738/-1440.-137.1440.870@-1440.-137.1440.870" timestamp="1630916614856" />
     <state width="1321" height="27" key="GridCell.Tab.0.center/0.0.1366.738/-1440.-137.1440.870@0.0.1366.738" timestamp="1629777347444" />
-    <state width="1395" height="313" key="GridCell.Tab.0.left" timestamp="1630916280142">
+    <state width="1395" height="406" key="GridCell.Tab.0.left" timestamp="1630916614855">
       <screen x="-1440" y="-137" width="1440" height="870" />
     </state>
-    <state width="1395" height="313" key="GridCell.Tab.0.left/0.0.1366.738/-1440.-137.1440.870@-1440.-137.1440.870" timestamp="1630916280142" />
+    <state width="1395" height="406" key="GridCell.Tab.0.left/0.0.1366.738/-1440.-137.1440.870@-1440.-137.1440.870" timestamp="1630916614855" />
     <state width="1321" height="27" key="GridCell.Tab.0.left/0.0.1366.738/-1440.-137.1440.870@0.0.1366.738" timestamp="1629777347444" />
-    <state width="1395" height="313" key="GridCell.Tab.0.right" timestamp="1630916280142">
+    <state width="1395" height="406" key="GridCell.Tab.0.right" timestamp="1630916614857">
       <screen x="-1440" y="-137" width="1440" height="870" />
     </state>
-    <state width="1395" height="313" key="GridCell.Tab.0.right/0.0.1366.738/-1440.-137.1440.870@-1440.-137.1440.870" timestamp="1630916280142" />
+    <state width="1395" height="406" key="GridCell.Tab.0.right/0.0.1366.738/-1440.-137.1440.870@-1440.-137.1440.870" timestamp="1630916614857" />
     <state width="1321" height="27" key="GridCell.Tab.0.right/0.0.1366.738/-1440.-137.1440.870@0.0.1366.738" timestamp="1629777347444" />
-    <state x="-1287" y="31" key="Vcs.Push.Dialog.v2" timestamp="1630914700229">
+    <state x="-1287" y="31" key="Vcs.Push.Dialog.v2" timestamp="1630916611744">
       <screen x="-1440" y="-137" width="1440" height="870" />
     </state>
-    <state x="-1287" y="31" key="Vcs.Push.Dialog.v2/0.0.1366.738/-1440.-137.1440.870@-1440.-137.1440.870" timestamp="1630914700229" />
+    <state x="-1287" y="31" key="Vcs.Push.Dialog.v2/0.0.1366.738/-1440.-137.1440.870@-1440.-137.1440.870" timestamp="1630916611744" />
     <state x="-1172" y="22" width="585" height="616" key="find.popup" timestamp="1626347174118">
       <screen x="-1440" y="-137" width="1440" height="870" />
     </state>

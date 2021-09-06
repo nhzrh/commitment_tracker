@@ -5,9 +5,8 @@ enum TabItem {
   expansion,
   deviceInfo,
   cryptography,
-  permission,
   pageOne,
-  pageTwo,
+  // pageTwo,
   logout,
 }
 
@@ -16,9 +15,8 @@ const Map<TabItem, String> drawerName = {
   TabItem.expansion: 'Expansion',
   TabItem.deviceInfo: 'Device Info',
   TabItem.cryptography: 'Cryptography',
-  TabItem.permission: 'Permission Checker',
   TabItem.pageOne: 'Tab One',
-  TabItem.pageTwo: 'Tab Two',
+  // TabItem.pageTwo: 'Tab Two',
   TabItem.logout: 'Sign Out',
 };
 
@@ -27,9 +25,8 @@ const Map<TabItem, String> tabName = {
   TabItem.expansion: 'Expansion Tile Demo',
   TabItem.deviceInfo: 'Device Info Demo',
   TabItem.cryptography: 'Cryptography Demo',
-  TabItem.permission: 'Permission Checker Demo',
   TabItem.pageOne: 'Tab One Example',
-  TabItem.pageTwo: 'Tab Two Example',
+  // TabItem.pageTwo: 'Tab Two Example',
   TabItem.logout: null,
 };
 
@@ -38,8 +35,7 @@ const Map<TabItem, IconData> tabIcons = {
   TabItem.expansion: Icons.document_scanner_outlined,
   TabItem.deviceInfo: Icons.phone_android_sharp,
   TabItem.cryptography: Icons.enhanced_encryption_outlined,
-  TabItem.permission: Icons.fact_check_outlined,
   TabItem.pageOne: Icons.account_box_outlined,
-  TabItem.pageTwo: Icons.people_alt_outlined,
+  // TabItem.pageTwo: Icons.people_alt_outlined,
   TabItem.logout: Icons.logout,
 };
