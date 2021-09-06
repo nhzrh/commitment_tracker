@@ -2,6 +2,7 @@ import 'package:commitment_tracker/models/commitments.dart';
 import 'package:commitment_tracker/screens/detail_screens.dart';
 import 'package:commitment_tracker/screens/home_screen.dart';
 import 'package:commitment_tracker/screens/logout_screen.dart';
+import 'package:commitment_tracker/screens/network_screen.dart';
 import 'package:commitment_tracker/screens/page_1.dart';
 import 'package:commitment_tracker/screens/view_screen.dart';
 import 'package:flutter/material.dart';
@@ -11,6 +12,7 @@ class Routes {
   static const String detail = '/detail';
   static const String view = '/view';
   static const String pageOne = '/pageOne';
+  static const String network = '/network';
   static const String logout = '/logout';
 }
 
@@ -45,6 +47,8 @@ class RouteGenerator {
         );
       case Routes.pageOne:
         return MaterialPageRoute(builder: (_) => PageOne(title: args.title));
+      case Routes.network:
+        return MaterialPageRoute(builder: (_) => NetworkScreen());
       case Routes.logout:
         return MaterialPageRoute(builder: (_) => LogoutScreen());
       default:

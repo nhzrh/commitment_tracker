@@ -1,3 +1,4 @@
+import 'package:commitment_tracker/common/utils/route_generator.dart';
 import 'package:flutter/material.dart';
 
 class TabTwo extends StatefulWidget {
@@ -17,10 +18,10 @@ class _TabTwoState extends State<TabTwo> {
         child: Column(
           children: [
             Text("Hello from ${widget.title ?? ''}"),
-            // TextButton(
-            //   onPressed: () => Navigator.pushNamed(context, Routes.network),
-            //   child: Text("Go to Network example"),
-            // )
+            TextButton(
+              onPressed: () => Navigator.pushNamed(context, Routes.network),
+              child: Text("Go to Network example"),
+            )
           ],
         ),
       ),

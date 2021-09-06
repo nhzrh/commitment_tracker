@@ -7,7 +7,9 @@ import 'package:commitment_tracker/common/utils/route_generator.dart';
 import 'package:commitment_tracker/common/utils/session_timer.dart';
 import 'package:commitment_tracker/common/utils/user_secure_storage.dart';
 import 'package:commitment_tracker/models/security_model.dart';
+import 'package:commitment_tracker/screens/pemission_checker_screen.dart';
 import 'package:commitment_tracker/screens/tab_1.dart';
+import 'package:commitment_tracker/screens/tab_2.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:quiver/async.dart';
@@ -69,8 +71,9 @@ class _HomeScreenState extends BaseStateful<HomeScreen> with WidgetsBindingObser
       ExpansionScreen(),
       DeviceInfoScreen(),
       CryptographyScreen(),
+      PermissionCheckerScreen(),
       TabOne(title: tabName[TabItem.pageOne]),
-      // TabTwo(title: tabName[TabItem.pageTwo]),
+      TabTwo(title: tabName[TabItem.pageTwo]),
     ];
 
     // You can let the plugin handle fetching the status and showing a dialog,
@@ -216,19 +219,26 @@ class _HomeScreenState extends BaseStateful<HomeScreen> with WidgetsBindingObser
                 },
               ),
               DrawerList(
+                tabItem: TabItem.permission,
+                currentTab: _currentTab,
+                onTap: () {
+                  selectTab(TabItem.permission, isChangeTab: true, hasUser: isAuthenticate);
+                },
+              ),
+              DrawerList(
                 tabItem: TabItem.pageOne,
                 currentTab: _currentTab,
                 onTap: () {
                   selectTab(TabItem.pageOne, isChangeTab: true, hasUser: isAuthenticate);
                 },
               ),
-              // DrawerList(
-              //   tabItem: TabItem.pageTwo,
-              //   currentTab: _currentTab,
-              //   onTap: () {
-              //     selectTab(TabItem.pageTwo, isChangeTab: true, hasUser: isAuthenticate);
-              //   },
-              // ),
+              DrawerList(
+                tabItem: TabItem.pageTwo,
+                currentTab: _currentTab,
+                onTap: () {
+                  selectTab(TabItem.pageTwo, isChangeTab: true, hasUser: isAuthenticate);
+                },
+              ),
               isAuthenticate
                   ? DrawerList(
                       tabItem: TabItem.logout,
