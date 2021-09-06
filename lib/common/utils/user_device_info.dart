@@ -6,13 +6,15 @@ import 'package:flutter/services.dart';
 class DeviceInfoModel {
   String applicationGUID;
   String deviceModelFullName;
+  String osVersion;
   Map<String, dynamic> allInfo;
-  DeviceInfoModel({this.applicationGUID, this.deviceModelFullName, this.allInfo});
+  DeviceInfoModel({this.applicationGUID, this.deviceModelFullName, this.osVersion, this.allInfo});
 }
 
 class UserDeviceInfo {
   static DeviceInfoModel deviceData = DeviceInfoModel();
   static final DeviceInfoPlugin deviceInfoPlugin = DeviceInfoPlugin();
+  static Future<String> getOperatingSystem() async => Platform.operatingSystem;
 
   static Future<DeviceInfoModel> getDeviceData() async {
     try {
@@ -28,39 +30,39 @@ class UserDeviceInfo {
     return deviceData;
   }
 
-  static DeviceInfoModel _readAndroidBuildData(AndroidDeviceInfo build) {
+  static DeviceInfoModel _readAndroidBuildData(AndroidDeviceInfo data) {
     DeviceInfoModel deviceInfoModel = DeviceInfoModel(
-      applicationGUID: build.androidId,
-      deviceModelFullName:
-          '${build.manufacturer} ${build.model} (Android ${build.version.release})',
+      applicationGUID: data.androidId,
+      deviceModelFullName: '${data.manufacturer} ${data.model} (Android ${data.version.release})',
+      osVersion: data.version.sdkInt.toString(),
       allInfo: <String, dynamic>{
-        'version.securityPatch': build.version.securityPatch,
-        'version.sdkInt': build.version.sdkInt,
-        'version.release': build.version.release,
-        'version.previewSdkInt': build.version.previewSdkInt,
-        'version.incremental': build.version.incremental,
-        'version.codename': build.version.codename,
-        'version.baseOS': build.version.baseOS,
-        'board': build.board,
-        'bootloader': build.bootloader,
-        'brand': build.brand,
-        'device': build.device,
-        'display': build.display,
-        'fingerprint': build.fingerprint,
-        'hardware': build.hardware,
-        'host': build.host,
-        'id': build.id,
-        'manufacturer': build.manufacturer,
-        'model': build.model, // e.g. "Moto G (4)"
-        'product': build.product,
-        'supported32BitAbis': build.supported32BitAbis,
-        'supported64BitAbis': build.supported64BitAbis,
-        'supportedAbis': build.supportedAbis,
-        'tags': build.tags,
-        'type': build.type,
-        'isPhysicalDevice': build.isPhysicalDevice,
-        'androidId': build.androidId, // UUID on Android
-        'systemFeatures': build.systemFeatures,
+        'version.securityPatch': data.version.securityPatch,
+        'version.sdkInt': data.version.sdkInt, //OS version
+        'version.release': data.version.release,
+        'version.previewSdkInt': data.version.previewSdkInt,
+        'version.incremental': data.version.incremental,
+        'version.codename': data.version.codename,
+        'version.baseOS': data.version.baseOS,
+        'board': data.board,
+        'bootloader': data.bootloader,
+        'brand': data.brand,
+        'device': data.device,
+        'display': data.display,
+        'fingerprint': data.fingerprint,
+        'hardware': data.hardware,
+        'host': data.host,
+        'id': data.id,
+        'manufacturer': data.manufacturer,
+        'model': data.model, // e.g. "Moto G (4)"
+        'product': data.product,
+        'supported32BitAbis': data.supported32BitAbis,
+        'supported64BitAbis': data.supported64BitAbis,
+        'supportedAbis': data.supportedAbis,
+        'tags': data.tags,
+        'type': data.type,
+        'isPhysicalDevice': data.isPhysicalDevice,
+        'androidId': data.androidId, // UUID on Android
+        'systemFeatures': data.systemFeatures,
       },
     );
     return deviceInfoModel;
@@ -68,12 +70,13 @@ class UserDeviceInfo {
 
   static DeviceInfoModel _readIosDeviceInfo(IosDeviceInfo data) {
     DeviceInfoModel deviceInfoModel = DeviceInfoModel(
-      applicationGUID: data.utsname.machine,
-      deviceModelFullName: data.identifierForVendor,
+      applicationGUID: data.identifierForVendor,
+      deviceModelFullName: '${data.name} ${data.model})',
+      osVersion: data.systemVersion,
       allInfo: <String, dynamic>{
         'name': data.name,
         'systemName': data.systemName,
-        'systemVersion': data.systemVersion,
+        'systemVersion': data.systemVersion, //OS Version
         'model': data.model,
         'localizedModel': data.localizedModel,
         'identifierForVendor': data.identifierForVendor, //UUID for iOS

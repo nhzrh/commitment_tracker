@@ -31,45 +31,44 @@ class _DeviceInfoScreenState extends State<DeviceInfoScreen> {
   Widget build(BuildContext context) {
     return SingleChildScrollView(
       child: Container(
+        padding: EdgeInsets.all(8),
         child: _deviceData != null
             ? Column(
                 children: [
-                  Text(_deviceData.deviceModelFullName ?? ''),
-                  Column(
-                    children: _deviceData.allInfo?.keys != null
-                        ? _deviceData.allInfo.keys.map(
-                            (String property) {
-                              return Row(
-                                children: <Widget>[
-                                  Container(
-                                    padding: const EdgeInsets.all(10.0),
-                                    child: Text(
-                                      property,
-                                      style: const TextStyle(
-                                        fontWeight: FontWeight.bold,
-                                      ),
-                                    ),
-                                  ),
-                                  Expanded(
-                                    child: Container(
-                                      padding: const EdgeInsets.fromLTRB(0.0, 10.0, 0.0, 10.0),
-                                      child: Text(
-                                        '${_deviceData.allInfo[property]}',
-                                        maxLines: 10,
-                                        overflow: TextOverflow.ellipsis,
-                                      ),
-                                    ),
-                                  ),
-                                ],
-                              );
-                            },
-                          ).toList()
-                        : [],
-                  )
+                  buildInfo('Phone', _deviceData.deviceModelFullName ?? ''),
+                  SizedBox(height: 16),
+                  _deviceData.allInfo?.keys == null
+                      ? Center(child: CircularProgressIndicator())
+                      : Column(
+                          children: _deviceData.allInfo.keys.map((key) {
+                            final value = _deviceData.allInfo[key];
+
+                            return buildInfo(key, value);
+                          }).toList(),
+                        )
                 ],
               )
             : null,
       ),
     );
   }
+
+  Widget buildInfo(String title, dynamic value) => Container(
+        padding: EdgeInsets.all(8),
+        child: Row(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: <Widget>[
+            Text(title, style: TextStyle(fontWeight: FontWeight.bold, fontSize: 15)),
+            const SizedBox(width: 12),
+            Expanded(
+              child: Text(
+                '$value',
+                maxLines: 15,
+                overflow: TextOverflow.ellipsis,
+                style: TextStyle(fontSize: 15),
+              ),
+            ),
+          ],
+        ),
+      );
 }
