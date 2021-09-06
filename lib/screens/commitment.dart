@@ -1,7 +1,7 @@
-import 'package:commitment_tracker/common/constant.dart';
-import 'package:commitment_tracker/common/utils.dart';
+import 'package:commitment_tracker/common/utils/constant.dart';
 import 'package:commitment_tracker/common/utils/custom_colors.dart';
 import 'package:commitment_tracker/common/utils/route_generator.dart';
+import 'package:commitment_tracker/common/utils/utils.dart';
 import 'package:commitment_tracker/models/commitments.dart';
 import 'package:commitment_tracker/services/boxes.dart';
 import 'package:flutter/material.dart';

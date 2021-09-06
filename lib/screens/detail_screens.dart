@@ -1,6 +1,6 @@
 import 'package:commitment_tracker/common/components/drop_down_field.dart';
 import 'package:commitment_tracker/common/components/text_form_field.dart';
-import 'package:commitment_tracker/common/utils.dart';
+import 'package:commitment_tracker/common/utils/utils.dart';
 import 'package:commitment_tracker/models/commitments.dart';
 import 'package:commitment_tracker/services/boxes.dart';
 import 'package:flutter/material.dart';

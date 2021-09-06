@@ -1,6 +1,6 @@
+import 'package:commitment_tracker/common/api/user_secure_storage.dart';
 import 'package:commitment_tracker/common/components/text_form_field.dart';
-import 'package:commitment_tracker/common/tab_item.dart';
-import 'package:commitment_tracker/common/utils/user_secure_storage.dart';
+import 'package:commitment_tracker/common/utils/tab_item.dart';
 import 'package:flutter/material.dart';
 import 'package:validators/validators.dart' as validator;
 

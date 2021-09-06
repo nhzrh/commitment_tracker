@@ -1,8 +1,8 @@
 import 'dart:io';
 
+import 'package:commitment_tracker/common/api/session_timer.dart';
 import 'package:commitment_tracker/common/components/custom_dialog.dart';
 import 'package:commitment_tracker/common/utils/global_data.dart';
-import 'package:commitment_tracker/common/utils/session_timer.dart';
 import 'package:commitment_tracker/models/commitments.dart';
 import 'package:commitment_tracker/models/security_model.dart';
 import 'package:flutter/material.dart';

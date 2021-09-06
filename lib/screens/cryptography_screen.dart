@@ -1,4 +1,4 @@
-import 'package:commitment_tracker/common/utils/cryptography_helper.dart';
+import 'package:commitment_tracker/common/api/cryptography_helper.dart';
 import 'package:encrypt/encrypt.dart' as encrypt;
 import 'package:flutter/material.dart';
 

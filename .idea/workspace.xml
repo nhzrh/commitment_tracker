@@ -21,16 +21,31 @@
   <component name="ChangeListManager">
     <list default="true" id="97a3a003-ee20-4826-a4e3-10a752a40eb1" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/common/utils/user_device_info.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/common/utils/user_device_info.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/common/components/drawer_list.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/common/components/drawer_list.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/common/constant.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/common/utils/constant.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/common/tab_item.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/common/utils/tab_item.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/common/utils.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/common/utils/utils.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/common/utils/cryptography_helper.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/common/api/cryptography_helper.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/common/utils/session_timer.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/common/api/session_timer.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/common/utils/user_device_info.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/common/api/user_device_info.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/common/utils/user_secure_storage.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/common/api/user_secure_storage.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/main.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/main.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/screens/authentication_screen.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/screens/authentication_screen.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/screens/commitment.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/screens/commitment.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/screens/cryptography_screen.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/screens/cryptography_screen.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/screens/detail_screens.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/screens/detail_screens.dart" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/lib/screens/device_info_screen.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/screens/device_info_screen.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pubspec.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/pubspec.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/screens/expansion_screen.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/screens/expansion_screen.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/screens/home_screen.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/screens/home_screen.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/screens/page_1.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/screens/page_1.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/services/boxes.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/services/boxes.dart" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
-  <component name="ExecutionTargetManager" SELECTED_TARGET="device_and_snapshot_combo_box_target[Nexus_6_API_30]" />
+  <component name="ExecutionTargetManager" SELECTED_TARGET="device_and_snapshot_combo_box_target[GU5985DEGEIBTCMB]" />
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
@@ -59,6 +74,8 @@
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\sdghazali\Documents\Silverlake\Flutter_Project\TryAndError\commitment_tracker\lib\common\utils" />
+      <recent name="C:\Users\sdghazali\Documents\Silverlake\Flutter_Project\TryAndError\commitment_tracker\lib\common\api" />
       <recent name="C:\Users\sdghazali\Documents\Silverlake\Flutter_Project\TryAndError\commitment_tracker\lib\common" />
       <recent name="C:\Users\sdghazali\Documents\Silverlake\Flutter_Project\TryAndError\commitment_tracker\lib\common\components" />
       <recent name="C:\Users\sdghazali\Documents\Silverlake\Flutter_Project\TryAndError\commitment_tracker\lib\utils" />
@@ -131,7 +148,14 @@
       <option name="project" value="LOCAL" />
       <updated>1630917432591</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="Update device info page">
+      <created>1630924308876</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1630924308877</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -155,7 +179,8 @@
     <MESSAGE value="migrate security functions" />
     <MESSAGE value="Add network ingo&#10;Add permission checker&#10;Add screen shot &amp; screen record security disabled" />
     <MESSAGE value="remove network info plus  and permission handler package" />
-    <option name="LAST_COMMIT_MESSAGE" value="remove network info plus  and permission handler package" />
+    <MESSAGE value="Update device info page" />
+    <option name="LAST_COMMIT_MESSAGE" value="Update device info page" />
   </component>
   <component name="WindowStateProjectService">
     <state x="-1154" y="221" key="#com.intellij.refactoring.move.MoveHandler.SelectRefactoringDialog" timestamp="1630906246573">
@@ -179,34 +204,34 @@
     </state>
     <state x="-1101" y="55" key="FileChooserDialogImpl/0.0.1366.738/-1440.-137.1440.870@-1440.-137.1440.870" timestamp="1626332553485" />
     <state x="322" y="163" key="FileChooserDialogImpl/0.0.1366.738/-1440.-137.1440.870@0.0.1366.738" timestamp="1626787657730" />
-    <state width="1395" height="202" key="GridCell.Tab.0.bottom" timestamp="1630917385153">
+    <state width="1395" height="2" key="GridCell.Tab.0.bottom" timestamp="1630924858470">
       <screen x="-1440" y="-137" width="1440" height="870" />
     </state>
-    <state width="1395" height="202" key="GridCell.Tab.0.bottom/0.0.1366.738/-1440.-137.1440.870@-1440.-137.1440.870" timestamp="1630917385153" />
+    <state width="1395" height="2" key="GridCell.Tab.0.bottom/0.0.1366.738/-1440.-137.1440.870@-1440.-137.1440.870" timestamp="1630924858470" />
     <state width="1321" height="27" key="GridCell.Tab.0.bottom/0.0.1366.738/-1440.-137.1440.870@0.0.1366.738" timestamp="1629777347445" />
-    <state width="1395" height="202" key="GridCell.Tab.0.center" timestamp="1630917385153">
+    <state width="1395" height="2" key="GridCell.Tab.0.center" timestamp="1630924858469">
       <screen x="-1440" y="-137" width="1440" height="870" />
     </state>
-    <state width="1395" height="202" key="GridCell.Tab.0.center/0.0.1366.738/-1440.-137.1440.870@-1440.-137.1440.870" timestamp="1630917385153" />
+    <state width="1395" height="2" key="GridCell.Tab.0.center/0.0.1366.738/-1440.-137.1440.870@-1440.-137.1440.870" timestamp="1630924858469" />
     <state width="1321" height="27" key="GridCell.Tab.0.center/0.0.1366.738/-1440.-137.1440.870@0.0.1366.738" timestamp="1629777347444" />
-    <state width="1395" height="202" key="GridCell.Tab.0.left" timestamp="1630917385153">
+    <state width="1395" height="2" key="GridCell.Tab.0.left" timestamp="1630924858469">
       <screen x="-1440" y="-137" width="1440" height="870" />
     </state>
-    <state width="1395" height="202" key="GridCell.Tab.0.left/0.0.1366.738/-1440.-137.1440.870@-1440.-137.1440.870" timestamp="1630917385153" />
+    <state width="1395" height="2" key="GridCell.Tab.0.left/0.0.1366.738/-1440.-137.1440.870@-1440.-137.1440.870" timestamp="1630924858469" />
     <state width="1321" height="27" key="GridCell.Tab.0.left/0.0.1366.738/-1440.-137.1440.870@0.0.1366.738" timestamp="1629777347444" />
-    <state width="1395" height="202" key="GridCell.Tab.0.right" timestamp="1630917385153">
+    <state width="1395" height="2" key="GridCell.Tab.0.right" timestamp="1630924858470">
       <screen x="-1440" y="-137" width="1440" height="870" />
     </state>
-    <state width="1395" height="202" key="GridCell.Tab.0.right/0.0.1366.738/-1440.-137.1440.870@-1440.-137.1440.870" timestamp="1630917385153" />
+    <state width="1395" height="2" key="GridCell.Tab.0.right/0.0.1366.738/-1440.-137.1440.870@-1440.-137.1440.870" timestamp="1630924858470" />
     <state width="1321" height="27" key="GridCell.Tab.0.right/0.0.1366.738/-1440.-137.1440.870@0.0.1366.738" timestamp="1629777347444" />
     <state x="-1287" y="31" key="Vcs.Push.Dialog.v2" timestamp="1630917440337">
       <screen x="-1440" y="-137" width="1440" height="870" />
     </state>
     <state x="-1287" y="31" key="Vcs.Push.Dialog.v2/0.0.1366.738/-1440.-137.1440.870@-1440.-137.1440.870" timestamp="1630917440337" />
-    <state x="-1172" y="22" width="585" height="616" key="find.popup" timestamp="1626347174118">
+    <state x="-1172" y="22" width="585" height="616" key="find.popup" timestamp="1630924403318">
       <screen x="-1440" y="-137" width="1440" height="870" />
     </state>
-    <state x="-1172" y="22" width="585" height="616" key="find.popup/0.0.1366.738/-1440.-137.1440.870@-1440.-137.1440.870" timestamp="1626347174118" />
+    <state x="-1172" y="22" width="585" height="616" key="find.popup/0.0.1366.738/-1440.-137.1440.870@-1440.-137.1440.870" timestamp="1630924403318" />
     <state x="-1064" y="129" key="run.anything.popup" timestamp="1626232456356">
       <screen x="-1440" y="-137" width="1440" height="870" />
     </state>

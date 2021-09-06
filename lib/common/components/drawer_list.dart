@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import '../tab_item.dart';
+import '../utils/tab_item.dart';
 
 class DrawerList extends StatelessWidget {
   final Function onTap;

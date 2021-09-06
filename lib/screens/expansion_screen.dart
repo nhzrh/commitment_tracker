@@ -1,4 +1,4 @@
-import 'package:commitment_tracker/common/constant.dart';
+import 'package:commitment_tracker/common/utils/constant.dart';
 import 'package:commitment_tracker/models/month_model.dart';
 import 'package:flutter/material.dart';
 

@@ -1,4 +1,5 @@
-import 'package:commitment_tracker/common/utils/user_device_info.dart';
+import 'package:commitment_tracker/common/api/user_device_info.dart';
+import 'package:dart_ipify/dart_ipify.dart';
 import 'package:flutter/material.dart';
 
 class DeviceInfoScreen extends StatefulWidget {
@@ -10,6 +11,7 @@ class DeviceInfoScreen extends StatefulWidget {
 
 class _DeviceInfoScreenState extends State<DeviceInfoScreen> {
   DeviceInfoModel _deviceData = DeviceInfoModel();
+  String _ipv4, _ipv6;
   @override
   void initState() {
     super.initState();
@@ -17,13 +19,16 @@ class _DeviceInfoScreenState extends State<DeviceInfoScreen> {
   }
 
   Future<void> initPlatformState() async {
-    var deviceData = DeviceInfoModel();
-    deviceData = await UserDeviceInfo.getDeviceData();
+    var deviceData = await UserDeviceInfo.getDeviceData();
+    var ipv4 = await Ipify.ipv4();
+    var ipv6 = await Ipify.ipv64();
     if (!mounted) {
       return;
     }
     setState(() {
       _deviceData = deviceData;
+      _ipv4 = ipv4;
+      _ipv6 = ipv6;
     });
   }
 
@@ -35,6 +40,8 @@ class _DeviceInfoScreenState extends State<DeviceInfoScreen> {
         child: _deviceData != null
             ? Column(
                 children: [
+                  buildInfo('IPV4', _ipv4 ?? ''),
+                  buildInfo('IPV4', _ipv6 ?? ''),
                   buildInfo('Phone', _deviceData.deviceModelFullName ?? ''),
                   SizedBox(height: 16),
                   _deviceData.allInfo?.keys == null

@@ -1,5 +1,5 @@
 import 'package:commitment_tracker/base/base_stateful.dart';
-import 'package:commitment_tracker/common/constant.dart';
+import 'package:commitment_tracker/common/utils/constant.dart';
 import 'package:flutter/material.dart';
 
 class PageOne extends StatefulWidget {
